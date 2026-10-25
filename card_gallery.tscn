@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3]
+[ext_resource type="PackedScene" path="res://card_model.tscn" id="1"]
+[ext_resource type="Resource" path="res://cards/warrior.tres" id="2"]
+[ext_resource type="Resource" path="res://cards/mage.tres" id="3"]
+[ext_resource type="Resource" path="res://cards/squire.tres" id="4"]
+[ext_resource type="Resource" path="res://cards/wolf.tres" id="5"]
+[ext_resource type="Resource" path="res://cards/rogue.tres" id="6"]
+[ext_resource type="Resource" path="res://cards/raven.tres" id="7"]
+[ext_resource type="Resource" path="res://cards/sentinel.tres" id="8"]
+[ext_resource type="Resource" path="res://cards/fire_mage.tres" id="9"]
+[ext_resource type="Resource" path="res://cards/farmer.tres" id="10"]
+[ext_resource type="Resource" path="res://cards/cleric.tres" id="11"]
+[sub_resource type="StyleBoxFlat" id="Background"]
+bg_color=Color(0.025,0.04,0.08,1)
+[node name="Gallery" type="Panel"]
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+theme_override_styles/panel=SubResource("Background")
+[node name="Title" type="Label" parent="."]
+offset_left=30.0
+offset_top=25.0
+offset_right=1410.0
+offset_bottom=100.0
+theme_override_font_sizes/font_size=26
+text="COLEÇÃO • 10 CARTAS\nGuerreiro • Mago • Neutro • Ladina • Clérigo"
+horizontal_alignment=1
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=35.0
+offset_top=115.0
+offset_right=-25.0
+offset_bottom=-20.0
+horizontal_scroll_mode=0
+[node name="Grid" type="GridContainer" parent="Scroll"]
+columns=5
+theme_override_constants/h_separation=20
+theme_override_constants/v_separation=20
+[node name="warrior" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("2")
+[node name="mage" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("3")
+[node name="squire" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("4")
+[node name="wolf" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("5")
+[node name="rogue" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("6")
+[node name="raven" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("7")
+[node name="sentinel" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("8")
+[node name="fire_mage" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("9")
+[node name="farmer" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("10")
+[node name="cleric" parent="Scroll/Grid" instance=ExtResource("1")]
+custom_minimum_size=Vector2(250,334)
+layout_mode=2
+card_data=ExtResource("11")
+

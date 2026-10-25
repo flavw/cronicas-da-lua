@@ -1,0 +1,65 @@
+CRÔNICAS DA LUA — REGRAS DO DUELO
+
+Objetivo: reduza a vida do castelo inimigo de 20 a 0. O castelo representa o jogador. Clique no castelo da IA para atacar diretamente com uma criatura pronta. Ataques diretos não têm contra-ataque.
+
+Turnos e mana
+Cada jogador começa com 3 cartas; o primeiro jogador compra uma ao iniciar seu turno. A mana máxima cresce 1 por turno, até 10, e a mana disponível é renovada no início do turno. Compre 1 carta por turno. Deck: 12 cartas, no máximo 2 cópias de cada. Há 3 espaços salvos no editor. Classes podem ser combinadas. Mão: até 8 cartas; compras excedentes são descartadas. Campo: até 5 criaturas.
+
+Invocação e combate
+Pague o custo no topo da carta para invocar. Criaturas entram esgotadas, exceto quem tem Arrancada; ficam prontas no início do seu próximo turno. Uma criatura pronta pode atacar OU usar uma habilidade que a esgote. Ataques físicos em criaturas causam dano e contra-ataque simultaneamente, mesmo que alguma morra. A defesa não esgota a criatura. Vida 0 ou menos remove a criatura. Ataque 0 não permite ataque físico.
+
+Armadura
+Reduz cada dano físico recebido, com mínimo de 0. Não é consumida. Também reduz dano de contra-ataque. Dano mágico ignora armadura e não gera contra-ataque.
+
+Bloqueio 1 — Escudeiro
+Enquanto o Escudeiro tiver sua carga de Bloqueio, ataques físicos do adversário devem atingir uma criatura com Bloqueio ativo. Não é possível atacar outras criaturas nem o castelo. Ao receber o primeiro ataque físico válido, perde 1 carga, mesmo se a armadura absorver todo o dano. Bloqueio N entra com N cargas e exige ser alvo dos primeiros N ataques físicos recebidos, consumindo uma carga por ataque. No início de cada turno do dono, recupera apenas 1 carga, até o máximo N. Exemplo: Bloqueio 2 que gastou as duas cargas recupera 1 no próximo turno; se preservar essa carga, pode voltar a 2 no turno seguinte. Se houver vários Escudeiros, escolha qualquer um com carga; os demais continuam protegendo. Magia ignora Bloqueio e não consome a carga. Contra-ataques não consomem Bloqueio. A carga também desaparece quando a criatura sai do campo.
+
+Arrancada — Ladina Relâmpago
+Entra pronta e pode atacar no mesmo turno da invocação. O ataque ainda esgota e deve respeitar Bloqueio. Não concede ataques extras.
+
+Voo — Corvo das Brumas
+Ataques físicos de criaturas com Voo ignoram Bloqueio: podem atingir outra criatura ou diretamente o castelo, mesmo com Escudeiro ativo. Voo não permite atacar no turno da invocação. Se escolher atacar uma criatura com Bloqueio, consome normalmente uma carga. Contra-ataques e Armadura continuam valendo.
+
+Fúria 1 — Lobo
+Pague 1 mana para aumentar permanentemente o ataque do Lobo em 1, sem esgotá-lo. Pode usar várias vezes no mesmo turno enquanto houver mana, inclusive se o Lobo já estiver esgotado. Fúria não deixa uma criatura esgotada pronta. O bônus dura enquanto o Lobo estiver no campo. Pode usar Fúria e depois atacar se o Lobo estiver pronto. Não causa dano, não gera contra-ataque e não consome Bloqueio inimigo.
+
+Cartas (custo; ataque/vida)
+Guerreira Audaciosa: 3; 3/1; Armadura 2; classe guerreiro, escudo vermelho.
+Maga Arcana: 2; 0/2; pague 1 mana e esgote para causar 1 dano mágico a uma criatura inimiga. Não atinge castelos e não gera contra-ataque. Classe mago, escudo roxo.
+Escudeiro da Lua: 1; 1/2; Bloqueio 1. Classe neutro, escudo cinza.
+Lobo da Noite: 2 para invocar; 2/2; Fúria 1 custa 1 mana para ativar. Classe neutro, escudo cinza.
+
+Ladina Relâmpago: 4; 4/2; Arrancada. Classe ladina, escudo verde.
+Corvo das Brumas: 3; 2/3; Voo. Classe ladina, escudo verde.
+Sentinela de Ferro: 2; 1/3; Armadura 1. Classe guerreiro, escudo vermelho.
+Feiticeira das Brasas: 4; 2/3; pague 2 mana e esgote para causar 2 danos mágicos a uma criatura inimiga, sem contra-ataque. Pode optar por ataque físico quando pronta. Classe mago, escudo roxo.
+
+Editor de decks
+Use o botão Decks no topo. Há 3 espaços independentes, inicialmente Equilíbrio, Assalto e Arcano. Cada deck deve conter 12 cartas, até 2 iguais. Use + e − para incluir/remover, e o campo de nome para renomear. Todas as 10 cartas estão disponíveis e as classes podem ser misturadas. Salvar deck grava neste computador; Jogar com este deck salva, ativa o espaço e inicia uma nova partida. Nova partida usa o espaço ativo. A IA usa um deck sugerido sujeito aos mesmos limites. Rascunhos não salvos são descartados ao trocar de espaço ou voltar ao duelo. Limpar/Restaurar alteram somente o rascunho até salvar. A seleção e os decks são preservados ao fechar o jogo.
+
+Controles
+Invocar: botão na mão. Selecione uma criatura pronta em campo e clique em um alvo permitido. A Maga já seleciona sua magia automaticamente. Para o Lobo, selecione-o e use o botão Fúria. Para atacar diretamente, selecione um atacante e clique no castelo da IA. Alvos inválidos ficam desabilitados. Passe o mouse sobre uma carta para ver sua versão completa e os atributos atuais. Encerre o turno para a IA jogar.
+
+Fadiga e fim
+Sem cartas no baralho, cada compra causa dano crescente ao próprio castelo: 1, 2, 3... Vida 0 encerra a partida; se ambos chegarem a 0 simultaneamente, empate. Nova partida fica disponível quando a IA termina de agir. Esta versão é vs IA; PvP será uma etapa futura.
+
+
+
+
+
+Resultado e som
+Ao terminar o duelo, aparece o painel de vitória, derrota ou empate. Vitória toca uma fanfarra e mostra partículas. Jogar novamente reinicia com o deck ativo; Editar decks abre os três espaços salvos; Ver tabuleiro fecha o painel de resultado. O botão Som no topo liga/desliga os efeitos. Magia, ataque ao castelo e vitória têm sons próprios, além de invocação, ataque em criatura e morte.
+
+
+Atalhos: Enter (incluindo Enter numérico) ou 0 do teclado numérico encerra o seu turno. Segurar a tecla não repete a ação. O atalho fica bloqueado durante animações, turno da IA, editor de decks e manual aberto.
+
+
+Cultivo e cura
+Fazendeiro: neutro, custo 2, ataque/vida 1/2. No início de cada turno do dono, ganha +1 de vida atual e máxima, permanentemente enquanto estiver em campo. Não cresce imediatamente ao ser invocado nem no turno adversário. O ganho preserva o dano já sofrido.
+Clériga da Aurora: classe Clérigo (escudo branco/dourado), custo 3, ataque/vida 1/4. Habilidade: pague 1 mana e esgote para curar até 2 de vida de uma criatura aliada (inclusive ela mesma) ou do seu castelo. Não pode curar inimigos nem criaturas mortas. Cura não passa da vida máxima atual da criatura, incluindo o crescimento do Fazendeiro; castelos têm máximo 20. Alvos já cheios são desabilitados e não gastam mana. Cura não causa contra-ataque nem consome Bloqueio.
+Para curar: selecione a Clériga pronta, clique em Cura e escolha um aliado ferido ou seu castelo. A habilidade e o ataque físico são alternativas, pois ambos esgotam.
+
+Indicadores em campo
+Somente a versão reduzida em campo mostra peitoral + valor de Armadura e escudo + cargas atuais de Bloqueio, diretamente sobre a arte e sem painel de fundo. Bloqueio 0 indica carga consumida. A carta completa ampliada não mostra esses ícones extras.
+
+

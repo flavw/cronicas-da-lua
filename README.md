@@ -57,4 +57,3 @@ Novos sons: assets/audio/magic.wav, victory.wav e castle.wav. Há 6 efeitos no t
 
 Suporte: Fazendeiro (2, 1/2) ganha +1 vida atual/máxima no início do turno do dono. Clériga da Aurora (3, 1/4; escudo branco/dourado) cura 2 por 1 mana + esgotar em criatura aliada ou castelo. A coleção tem 10 cartas; decks continuam com 12 e até 2 cópias. Decks salvos são preservados; use a coleção ou Restaurar sugestão para incluir as novas. support_gallery.tscn mostra os novos cards. Os ícones de Armadura e Bloqueio aparecem somente nas cartas reduzidas em campo, sem painel de fundo. tests/test_support.gd e test_support_ui.gd verificam regras e seleção de cura. Artes feitas com imagegen em assets/farmer.png, cleric.png e ui/shield-cleric.png; prompts em assets/SUPPORT_PROMPTS.md.
 
-

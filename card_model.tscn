@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/card_view.gd" id="1"]
+[ext_resource type="Resource" path="res://cards/warrior.tres" id="2"]
+[ext_resource type="SystemFont" path="res://assets/fonts/title_font.tres" id="3"]
+[sub_resource type="StyleBoxFlat" id="Frame"]
+bg_color=Color(0.015, 0.03, 0.05, 1)
+border_width_left=2
+border_width_top=2
+border_width_right=2
+border_width_bottom=2
+border_color=Color(0.83, 0.65, 0.31, 1)
+corner_radius_top_left=8
+corner_radius_top_right=8
+corner_radius_bottom_left=8
+corner_radius_bottom_right=8
+
+[node name="CardModel" type="Control"]
+custom_minimum_size=Vector2(100, 134)
+offset_right=360.0
+offset_bottom=480.0
+mouse_filter=2
+script=ExtResource("1")
+card_data=ExtResource("2")
+[node name="CardCanvas" type="Control" parent="."]
+offset_right=360.0
+offset_bottom=480.0
+mouse_filter=2
+[node name="Frame" type="Panel" parent="CardCanvas"]
+offset_right=360.0
+offset_bottom=480.0
+mouse_filter=2
+theme_override_styles/panel=SubResource("Frame")
+
+[node name="Artwork" type="TextureRect" parent="CardCanvas"]
+offset_left=3.0
+offset_top=3.0
+offset_right=357.0
+offset_bottom=477.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=0
+
+[node name="TitleBanner" type="TextureRect" parent="CardCanvas"]
+offset_left=22.0
+offset_top=18.0
+offset_right=347.0
+offset_bottom=69.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=0
+
+[node name="Title" type="Label" parent="CardCanvas"]
+offset_left=91.0
+offset_top=21.0
+offset_right=335.0
+offset_bottom=66.0
+mouse_filter=2
+theme_override_fonts/font=ExtResource("3")
+theme_override_font_sizes/font_size=25
+theme_override_colors/font_color=Color(1, 0.97, 0.9, 1)
+theme_override_colors/font_outline_color=Color(0.03, 0.02, 0.015, 1)
+theme_override_constants/outline_size=1
+text="Guerreira Audaciosa"
+horizontal_alignment=1
+vertical_alignment=1
+autowrap_mode=2
+
+[node name="CostGem" type="TextureRect" parent="CardCanvas"]
+offset_left=9.0
+offset_top=7.0
+offset_right=90.0
+offset_bottom=88.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=0
+
+[node name="Cost" type="Label" parent="CardCanvas"]
+offset_left=15.0
+offset_top=10.0
+offset_right=83.0
+offset_bottom=81.0
+mouse_filter=2
+theme_override_fonts/font=ExtResource("3")
+theme_override_font_sizes/font_size=51
+theme_override_colors/font_color=Color(1, 0.97, 0.9, 1)
+theme_override_colors/font_outline_color=Color(0.03, 0.02, 0.015, 1)
+theme_override_constants/outline_size=1
+text="3"
+horizontal_alignment=1
+vertical_alignment=1
+autowrap_mode=2
+
+[node name="RulesPanel" type="TextureRect" parent="CardCanvas"]
+offset_left=13.0
+offset_top=365.0
+offset_right=346.0
+offset_bottom=440.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=0
+
+[node name="Ability" type="Label" parent="CardCanvas"]
+offset_left=24.0
+offset_top=371.0
+offset_right=291.0
+offset_bottom=433.0
+mouse_filter=2
+theme_override_fonts/font=ExtResource("3")
+theme_override_font_sizes/font_size=18
+theme_override_colors/font_color=Color(0.04, 0.025, 0.015, 1)
+theme_override_colors/font_outline_color=Color(0.03, 0.02, 0.015, 1)
+theme_override_constants/outline_size=0
+text="Armadura 2"
+horizontal_alignment=1
+vertical_alignment=1
+autowrap_mode=2
+
+[node name="Shield" type="TextureRect" parent="CardCanvas"]
+offset_left=283.0
+offset_top=397.0
+offset_right=351.0
+offset_bottom=477.0
+mouse_filter=2
+expand_mode=1
+stretch_mode=0
+
+[node name="Stats" type="Label" parent="CardCanvas"]
+offset_left=289.0
+offset_top=413.0
+offset_right=343.0
+offset_bottom=461.0
+mouse_filter=2
+theme_override_fonts/font=ExtResource("3")
+theme_override_font_sizes/font_size=30
+theme_override_colors/font_color=Color(1, 0.97, 0.9, 1)
+theme_override_colors/font_outline_color=Color(0.03, 0.02, 0.015, 1)
+theme_override_constants/outline_size=1
+text="3/1"
+horizontal_alignment=1
+vertical_alignment=1
+autowrap_mode=2
+
+

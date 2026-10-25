@@ -1,0 +1,20 @@
+.godot/
+.local/
+# Dados locais, credenciais e arquivos exportados
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+export_credentials.cfg
+build/
+builds/
+*.exe
+*.pck
+*.log
+Thumbs.db
+.DS_Store
+
+# Fonte do Windows: usa-se SystemFont no projeto
+assets/fonts/georgiab.ttf
+assets/fonts/georgiab.ttf.import
