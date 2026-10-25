@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4nnxdea8am63"
-path="res://.godot/imported/warrior.png-4e6d2393ea2d7e924226543bdb7ff6ac.ctex"
+uid="uid://cmbm4ffp6asem"
+path="res://.godot/imported/sentinel.png-81f17556b63daa935f82e6cefa842d64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/warrior.png"
-dest_files=["res://.godot/imported/warrior.png-4e6d2393ea2d7e924226543bdb7ff6ac.ctex"]
+source_file="res://assets/art/sentinel.png"
+dest_files=["res://.godot/imported/sentinel.png-81f17556b63daa935f82e6cefa842d64.ctex"]
 
 [params]
 

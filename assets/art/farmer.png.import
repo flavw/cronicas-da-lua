@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsqcsmaold6un"
-path="res://.godot/imported/squire.png-c683e1b1b7da1292a0288d9f0bc40902.ctex"
+uid="uid://n3umt4hparv3"
+path="res://.godot/imported/farmer.png-5d2c99619e91e434f89258a80955659d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/squire.png"
-dest_files=["res://.godot/imported/squire.png-c683e1b1b7da1292a0288d9f0bc40902.ctex"]
+source_file="res://assets/art/farmer.png"
+dest_files=["res://.godot/imported/farmer.png-5d2c99619e91e434f89258a80955659d.ctex"]
 
 [params]
 

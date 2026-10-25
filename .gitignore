@@ -14,7 +14,3 @@ builds/
 *.log
 Thumbs.db
 .DS_Store
-
-# Fonte do Windows: usa-se SystemFont no projeto
-assets/fonts/georgiab.ttf
-assets/fonts/georgiab.ttf.import

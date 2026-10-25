@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfjd7otvgpayy"
-path="res://.godot/imported/mage.png-cdc7a45788bcd6307a3df9aac12e86d1.ctex"
+uid="uid://b4fj3w8dnipwh"
+path="res://.godot/imported/raven.png-75d63d2cff53512ca82f416f0f4a5708.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mage.png"
-dest_files=["res://.godot/imported/mage.png-cdc7a45788bcd6307a3df9aac12e86d1.ctex"]
+source_file="res://assets/art/raven.png"
+dest_files=["res://.godot/imported/raven.png-75d63d2cff53512ca82f416f0f4a5708.ctex"]
 
 [params]
 

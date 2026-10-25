@@ -1,20 +1,25 @@
 # Modelo editável de cartas
 
-Abra card_gallery.tscn para ver as oito cartas ou expansion_gallery.tscn para ver as quatro da expansão. Execute com F6. Abra card_model.tscn para editar as camadas comuns.
+Abra `card_gallery.tscn` para ver as dez cartas, `expansion_gallery.tscn` para as quatro cartas da expansão ou `support_gallery.tscn` para os exemplos de suporte. Execute com F6. Abra `card_model.tscn` para editar as camadas comuns.
 
 Selecione uma carta e expanda Card Data no Inspector. Nome, custo, ataque, vida, armadura, classe, habilidades e ilustração são recursos compartilhados com a partida. Salve e reinicie a partida para aplicar mudanças nas regras. O texto da habilidade é uma descrição; novas mecânicas precisam de implementação.
 
-A camada Artwork preenche todo o fundo, sem uma faixa vazia reservada para o título. Nome, custo, regras e escudo são sobrepostos à ilustração. Artwork Zoom amplia a arte (1 = enquadramento mínimo que preenche a carta) e Artwork Focus define o centro do recorte em coordenadas entre 0 e 1. X controla esquerda/direita e Y cima/baixo. O enquadramento é limitado para nunca revelar áreas vazias. Para mover o recorte, pode ser necessário aumentar um pouco o zoom. Cada recurso guarda seu próprio enquadramento, com atualização no editor.
+## Arte e enquadramento
 
-As versões limpas da Guerreira, Maga, Escudeiro e Lobo ficam em assets/art/. As imagens originais com molduras permanecem em assets/. As artes da expansão já não têm textos ou molduras gravados. As quatro versões limpas foram preparadas com imagegen; o prompt está em assets/art/PROMPT.md.
+Todas as dez artes de criaturas usadas pelo jogo ficam em `assets/art/`. Não há versões antigas duplicadas. Os recursos em `cards/` apontam para essas imagens. Os prompts de geração ficam em `docs/art-prompts/`.
 
-Classes: Warrior vermelho, Mage roxo, Neutral cinza, Rogue verde. Para criar uma carta independente, duplique um recurso em cards/ antes de editar.
+A camada Artwork preenche todo o fundo da carta completa. Nome, custo, regras e escudo são sobrepostos à ilustração. Artwork Zoom amplia a arte (1 = enquadramento mínimo que preenche a carta) e Artwork Focus define o centro do recorte em coordenadas entre 0 e 1. X controla esquerda/direita e Y cima/baixo. O enquadramento é limitado para nunca revelar áreas vazias. Para mover o recorte, pode ser necessário aumentar um pouco o zoom. Cada recurso guarda seu próprio enquadramento, com atualização no editor.
 
-Camadas em CardCanvas: Frame, Artwork, TitleBanner, Title, CostGem, Cost, RulesPanel, Ability, Shield, Stats. O conteúdo dos Labels é alimentado por Card Data. As imagens transparentes da interface ficam em assets/ui/.
+`field_card.tscn` é a versão quadrada usada em campo. Ela compartilha a ilustração da carta completa e mostra ataque/vida atuais. O enquadramento do modelo completo não muda o recorte quadrado do campo. Passe o mouse para abrir a carta completa. As cartas completas também são usadas na mão e no editor de decks.
 
-field_card.tscn é a versão quadrada usada em campo, mostrando arte e ataque/vida atual. O enquadramento do modelo completo não muda o recorte quadrado do campo. Passe o mouse para abrir a carta completa. Esgotado escurece a arte e mostra Zzzz animado. As mesmas cartas completas são usadas no editor de decks, na mão e na prévia por mouse.
+## Camadas e indicadores
 
-A coleção agora tem 10 cartas. Card Class inclui CLERIC, com escudo branco/dourado. Growth, Heal Amount e Heal Cost são editáveis no Inspector. Inspect Mode habilita o painel StatusIcons da prévia: peitoral + armadura e escudo + cargas de Bloqueio. Cada ícone e valor é um nó separado, com SVGs editáveis em assets/ui. support_gallery.tscn apresenta os exemplos.
+Camadas em CardCanvas: Frame, Artwork, TitleBanner, Title, CostGem, Cost, RulesPanel, Ability, Shield e Stats. O conteúdo dos Labels é alimentado por Card Data. Molduras, escudos, ícones e efeitos ficam em `assets/ui/`.
 
+StatusIcons fica exclusivamente em `field_card.tscn`, como HBoxContainer sem fundo, no canto inferior esquerdo da versão reduzida. O peitoral mostra Armadura e o escudo mostra as cargas atuais de Bloqueio, incluindo zero quando consumidas. A carta completa não contém esses ícones nem a propriedade Inspect Mode. Esgotado escurece a arte e mostra Zzzz animado no canto superior direito.
 
-Correção dos indicadores: StatusIcons fica exclusivamente em field_card.tscn, como HBoxContainer sem fundo, no canto inferior esquerdo da versão reduzida. O card_model.tscn completo não contém esses ícones nem Inspect Mode. Armadura e Bloqueio são atualizados com os valores da criatura em campo.
+## Classes e novas cartas
+
+Classes: Warrior vermelho, Mage roxo, Neutral cinza, Rogue verde e Cleric branco/dourado. Growth, Heal Amount e Heal Cost também são editáveis no Inspector.
+
+Para criar uma carta independente, duplique um recurso em `cards/` antes de editar. Salve a ilustração em `assets/art/`, selecione-a em Artwork e ajuste o enquadramento. Registre o novo recurso em CARD_DATA, em `scripts/match.gd`, para incluí-lo na coleção e no editor de decks. Habilidades novas precisam de regras na lógica da partida.
