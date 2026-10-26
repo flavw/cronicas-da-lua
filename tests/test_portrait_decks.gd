@@ -1,0 +1,62 @@
+extends SceneTree
+const Store=preload("res://scripts/deck_store.gd")
+const Match=preload("res://scripts/match.gd")
+func _initialize() -> void:call_deferred("verify")
+func verify() -> void:
+ var store=Store.new("user://test_portrait_decks.json",false)
+ var neutral: Array=Match.default_deck(4)
+ assert(Match.valid_deck(neutral))
+ store.slots[4]={"name":"Aliança Livre","cards":neutral,"cover":""}
+ var editor=load("res://deck_editor.tscn").instantiate()
+ editor.configure(store)
+ root.add_child(editor)
+ await process_frame
+ await process_frame
+ var grid=editor.find_child("DeckLibrary",true,false)
+ var actions=editor.find_child("LibraryActions",true,false)
+ assert(grid.get_child_count()==Store.SLOT_COUNT and actions.find_children("*","Button",true,false).size()==3)
+ for i in range(Store.SLOT_COUNT):
+  var tile=grid.get_child(i)
+  assert(tile.find_children("*","Button",true,false).is_empty(),"Decks sem botões individuais")
+  assert(absf(tile.size.x/tile.size.y-0.75)<0.015,"Capas próximas da proporção 3:4 da arte")
+  assert(tile.get_global_rect().end.x<actions.get_global_rect().position.x,"Decks ficam à esquerda do painel")
+  if i<5:
+   var symbol=tile.find_child("DeckClassSymbol",true,false)
+   assert(symbol!=null and symbol.texture!=null)
+   assert(symbol.tooltip_text==["Guerreiro","Ladina","Mago","Clérigo","Neutro"][i])
+  else:assert(tile.find_child("DeckClassSymbol",true,false)==null,"Vazio não é confundido com arquétipo neutro")
+ for label in editor.find_children("*","Label",true,false):assert("+ neutros" not in label.text)
+ var art=grid.get_child(4).find_child("DeckCoverArtwork",true,false)
+ var click:=InputEventMouseButton.new()
+ click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+ click.position=art.get_global_rect().get_center()
+ root.push_input(click,true)
+ await process_frame
+ assert(editor.library_selected==4 and editor.screen=="library" and store.active==0)
+ assert(editor.find_child("SelectedDeckName",true,false).text=="Aliança Livre")
+ assert(editor.find_child("LibraryActions",true,false).find_child("DeckClassSymbol",true,false).tooltip_text=="Neutro")
+ click.pressed=false;root.push_input(click,true)
+ editor.find_child("DeckActionPersonalize",true,false).pressed.emit()
+ assert(editor.screen=="personalize" and editor.personal_slot==4)
+ editor.show_library()
+ editor.find_child("DeckActionEdit",true,false).pressed.emit()
+ assert(editor.screen=="edit" and editor.slot==4)
+ editor.show_library()
+ editor.select_library_deck(5)
+ assert(editor.find_child("DeckActionPlay",true,false).disabled)
+ assert(editor.find_child("DeckActionEdit",true,false).text=="Criar deck")
+ editor.find_child("DeckActionEdit",true,false).pressed.emit()
+ assert(editor.slot==5 and editor.draft.is_empty())
+ assert(editor.screen=="choose_class")
+ editor.select_base_class(CardData.CardClass.NEUTRAL)
+ assert(editor.add_card("wolf"))
+ assert(editor.find_child("DeckClassSymbol",true,false).tooltip_text=="Neutro")
+ assert(not editor.add_card("warrior"))
+ editor.clear_draft();editor.begin_class_choice();editor.select_base_class(CardData.CardClass.WARRIOR)
+ assert(editor.add_card("warrior"))
+ assert(editor.find_child("DeckClassSymbol",true,false).tooltip_text=="Guerreiro")
+ editor.queue_free()
+ await process_frame
+ await create_timer(0.35).timeout
+ print("OK: retratos 3:4 à esquerda, três ações únicas à direita, seleção por clique e símbolos das quatro classes e Neutro.")
+ quit()

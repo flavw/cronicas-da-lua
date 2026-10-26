@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/raven.png" id="2"]
 [resource]
 script=ExtResource("1")
+creature_type=1
 title="Corvo das Brumas"
 cost=3
 attack=2
@@ -15,3 +16,4 @@ artwork=ExtResource("2")
 artwork_zoom=1.08
 artwork_focus=Vector2(0.5, 0.46)
 
+envenom=1

@@ -1,0 +1,165 @@
+{
+  "active": 4,
+  "slots": [
+    {
+      "cards": [
+        "squire",
+        "squire",
+        "sentinel",
+        "sentinel",
+        "wall_smith",
+        "wall_smith",
+        "warrior",
+        "warrior",
+        "wall_guard",
+        "moon_herald",
+        "iron_stance",
+        "iron_stance",
+        "wall_guard",
+        "moon_herald",
+        "village_wall",
+        "gate_watcher",
+        "wolf",
+        "wolf",
+        "farmer",
+        "farmer"
+      ],
+      "cover": "warrior",
+      "name": "Muralha Lunar",
+      "base_class": 0
+    },
+    {
+      "cards": [
+        "dusk_scout",
+        "dusk_scout",
+        "raven",
+        "raven",
+        "rogue",
+        "rogue",
+        "mist_alchemist",
+        "mist_alchemist",
+        "moon_herald",
+        "messenger_hawk",
+        "shadow_step",
+        "shadow_step",
+        "moon_herald",
+        "messenger_hawk",
+        "wolf",
+        "wolf",
+        "squire",
+        "squire",
+        "gate_watcher",
+        "gate_watcher"
+      ],
+      "cover": "dusk_scout",
+      "name": "Caçada das Brumas",
+      "base_class": 3
+    },
+    {
+      "cards": [
+        "mage",
+        "mage",
+        "aether_summoner",
+        "aether_summoner",
+        "runic_familiar",
+        "eclipse_channeler",
+        "eclipse_channeler",
+        "conductive_bolt",
+        "conductive_bolt",
+        "astral_flame",
+        "squire",
+        "squire",
+        "runic_familiar",
+        "astral_flame",
+        "fire_mage",
+        "fire_mage",
+        "moon_herald",
+        "moon_herald",
+        "fireball",
+        "fireball"
+      ],
+      "cover": "",
+      "name": "Círculo Arcano",
+      "base_class": 1
+    },
+    {
+      "cards": [
+        "cleric",
+        "cleric",
+        "dawn_warden",
+        "dawn_warden",
+        "dawn_oracle",
+        "dawn_oracle",
+        "farmer",
+        "farmer",
+        "moon_herald",
+        "squire",
+        "restoring_light",
+        "vigor_vow",
+        "moon_herald",
+        "squire",
+        "restoring_light",
+        "vigor_vow",
+        "life_pilgrim",
+        "life_pilgrim",
+        "generous_peasant",
+        "generous_peasant"
+      ],
+      "cover": "",
+      "name": "Aurora Vital",
+      "base_class": 4
+    },
+    {
+      "cards": [
+        "messenger_hawk",
+        "messenger_hawk",
+        "squire",
+        "squire",
+        "wolf",
+        "wolf",
+        "farmer",
+        "farmer",
+        "village_leader",
+        "village_leader",
+        "generous_peasant",
+        "generous_peasant",
+        "gate_watcher",
+        "gate_watcher",
+        "life_pilgrim",
+        "moon_herald",
+        "moon_herald",
+        "village_reconstruction",
+        "village_wall",
+        "village_reconstruction"
+      ],
+      "cover": "village_leader",
+      "name": "União da Aldeia",
+      "base_class": 2
+    },
+    {
+      "cards": [],
+      "cover": "",
+      "name": "Novo deck 6",
+      "base_class": -1
+    },
+    {
+      "cards": [],
+      "cover": "",
+      "name": "Novo deck 7",
+      "base_class": -1
+    },
+    {
+      "cards": [],
+      "cover": "",
+      "name": "Novo deck 8",
+      "base_class": -1
+    },
+    {
+      "cards": [],
+      "cover": "",
+      "name": "Novo deck 9",
+      "base_class": -1
+    }
+  ],
+  "version": 7
+}

@@ -8,6 +8,7 @@ func creature(key: String, id: int) -> Dictionary:
  return u
 func verify() -> void:
  var main = load("res://main.tscn").instantiate()
+ main.enable_opening=false
  root.add_child(main)
  main.duel.players[0].board = [creature("cleric", 10), creature("farmer", 11), creature("warrior", 12), creature("squire", 13)]
  main.duel.players[0].board[1].health = 1
@@ -20,7 +21,7 @@ func verify() -> void:
  assert(not main.find_child("PlayerCastle", true, false).disabled)
  assert(main.find_child("EnemyCastle", true, false).disabled)
  main.field_nodes[0][11].activated.emit()
- assert(main.duel.players[0].board[1].health == 2)
+ assert(main.duel.players[0].board[1].health == 3)
  for i in range(40):
   if not main.busy:
    break
@@ -44,4 +45,5 @@ func verify() -> void:
  main.queue_free()
  await process_frame
  await process_frame
+ await create_timer(0.35).timeout
  quit()

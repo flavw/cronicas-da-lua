@@ -11,15 +11,21 @@ config_version=5
 [application]
 
 config/name="Crônicas da Lua — Duelo de Cartas"
-run/main_scene="res://main.tscn"
+run/main_scene="res://start_menu.tscn"
 config/features=PackedStringArray("4.7")
+
+[autoload]
+
+GameMusic="*res://scripts/game_music.gd"
+GameDisplay="*res://scripts/game_display.gd"
 
 [display]
 
-window/size/viewport_width=1440
-window/size/viewport_height=1000
-window/size/window_width_override=1152
-window/size/window_height_override=800
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/window_width_override=1600
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 
 [rendering]

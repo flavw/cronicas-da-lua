@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="112" viewBox="0 0 128 112">
+<defs><linearGradient id="stone" x2="0" y2="1"><stop stop-color="#b5e5ff"/><stop offset="1" stop-color="#285b91"/></linearGradient><linearGradient id="gold" x2="0" y2="1"><stop stop-color="#ffe5a0"/><stop offset="1" stop-color="#9c7138"/></linearGradient></defs>
+<path d="M31 7v28M96 7v28" stroke="#d7b974" stroke-width="3"/>
+<path d="M32 7h21l-7 7 7 7H32zM97 7h21l-7 7 7 7H97z" fill="#37baff"/>
+<path d="M13 101V35h10v9h10v-9h10v9h10v-9h10v66zM75 101V35h10v9h10v-9h10v9h10v-9h10v66z" fill="url(#stone)" stroke="url(#gold)" stroke-width="3"/>
+<path d="M41 101V59h10v9h10v-9h10v9h10v-9h10v42z" fill="url(#stone)" stroke="url(#gold)" stroke-width="3"/>
+<path d="M55 101V88a11 11 0 0 1 22 0v13" fill="#152439" stroke="#c6a366" stroke-width="2"/>
+<path d="M28 58h10v15H28zM92 58h10v15H92z" fill="#152439" stroke="#b9a276"/>
+<path d="M17 82h24M91 82h29M18 94h23M91 94h29" stroke="#508dc5" stroke-width="2"/>
+<path d="M7 104h120" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+</svg>

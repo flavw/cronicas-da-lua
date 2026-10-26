@@ -5,6 +5,7 @@
 
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Guerreira Audaciosa"
 cost=3
 attack=3

@@ -1,0 +1,118 @@
+[
+  {
+    "key": "wall_guard",
+    "title": "Guardião da Muralha",
+    "cost": 4,
+    "attack": 2,
+    "health": 4,
+    "card_class": 0,
+    "armor": 1,
+    "block": 2
+  },
+  {
+    "key": "gate_watcher",
+    "title": "Vigia do Portão",
+    "cost": 2,
+    "attack": 2,
+    "health": 2,
+    "card_class": 2,
+    "block": 1,
+    "affinity": "Proteção / Guerreiro"
+  },
+  {
+    "key": "eclipse_channeler",
+    "title": "Canalista do Eclipse",
+    "cost": 3,
+    "attack": 1,
+    "health": 3,
+    "card_class": 1,
+    "magic_damage": 2,
+    "magic_cost": 2
+  },
+  {
+    "key": "runic_familiar",
+    "title": "Familiar Rúnico",
+    "cost": 2,
+    "attack": 0,
+    "health": 3,
+    "card_class": 2,
+    "magic_power": 1,
+    "affinity": "Arcano / Mago"
+  },
+  {
+    "key": "dusk_scout",
+    "title": "Batedora do Crepúsculo",
+    "cost": 2,
+    "attack": 2,
+    "health": 1,
+    "card_class": 3,
+    "swift": true
+  },
+  {
+    "key": "messenger_hawk",
+    "title": "Falcão Mensageiro",
+    "cost": 1,
+    "attack": 1,
+    "health": 1,
+    "card_class": 2,
+    "flying": true,
+    "affinity": "Ímpeto / Ladina"
+  },
+  {
+    "key": "dawn_warden",
+    "title": "Guardião da Aurora",
+    "cost": 4,
+    "attack": 2,
+    "health": 5,
+    "card_class": 4,
+    "heal_amount": 2,
+    "heal_cost": 1
+  },
+  {
+    "key": "life_pilgrim",
+    "title": "Peregrina da Vida",
+    "cost": 3,
+    "attack": 1,
+    "health": 4,
+    "card_class": 2,
+    "growth": 1,
+    "affinity": "Sustento / Clérigo"
+  },
+  {
+    "key": "iron_stance",
+    "title": "Postura de Ferro",
+    "cost": 2,
+    "card_class": 0,
+    "card_type": 1,
+    "spell_effect": 1,
+    "spell_value": 1,
+    "spell_secondary": 2
+  },
+  {
+    "key": "astral_flame",
+    "title": "Chama Astral",
+    "cost": 3,
+    "card_class": 1,
+    "card_type": 1,
+    "spell_effect": 2,
+    "spell_value": 3
+  },
+  {
+    "key": "shadow_step",
+    "title": "Passo das Sombras",
+    "cost": 2,
+    "card_class": 3,
+    "card_type": 1,
+    "spell_effect": 3,
+    "spell_value": 1
+  },
+  {
+    "key": "restoring_light",
+    "title": "Luz Restauradora",
+    "cost": 2,
+    "card_class": 4,
+    "card_type": 1,
+    "spell_effect": 4,
+    "spell_value": 4
+  }
+]

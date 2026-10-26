@@ -6,6 +6,11 @@ static var cache: Dictionary = {}
 static func texture(asset: String) -> Texture2D:
  if cache.has(asset):
   return cache[asset]
+ var vector_path := "res://assets/ui/%s.svg" % asset
+ if ResourceLoader.exists(vector_path):
+  var vector: Texture2D = load(vector_path)
+  cache[asset] = vector
+  return vector
  var path := "res://assets/ui/%s.png" % asset
  if not ResourceLoader.exists(path):
   return null
@@ -28,5 +33,9 @@ static func texture(asset: String) -> Texture2D:
  cache[asset] = atlas
  return atlas
 
-static func shield(card_class: int) -> Texture2D:
- return texture(["shield-warrior", "shield-mage", "shield-neutral", "shield-rogue", "shield-cleric"][card_class])
+static func class_color(card_class: int) -> Color:
+ return [Color("c87575"),Color("b08bd8"),Color("9ba5b1"),Color("6ab798"),Color("d7cba6"),Color("d69c63")][clampi(card_class,0,5)]
+
+static func class_symbol(card_class: int) -> Texture2D:
+ if card_class<0 or card_class>5:return null
+ return texture(["class-warrior","class-mage","class-neutral","class-rogue","class-cleric","class-horde"][card_class])

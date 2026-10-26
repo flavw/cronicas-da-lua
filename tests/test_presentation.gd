@@ -11,8 +11,9 @@ func creature(key: String, id: int, ready: bool = true) -> Dictionary:
 
 func verify() -> void:
  var main = load("res://main.tscn").instantiate()
+ main.enable_opening=false
  root.add_child(main)
- assert(main.sounds.size() == 6)
+ assert(main.sounds.size() == 10)
  for key in ["magic", "victory", "castle"]:
   assert(main.sounds[key].stream.get_length() > 0.3)
  main.duel.players[0].board = [creature("warrior", 10), creature("fire_mage", 11), creature("squire", 12), creature("wolf", 13, false)]

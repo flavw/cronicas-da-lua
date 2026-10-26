@@ -5,6 +5,7 @@
 
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Maga Arcana"
 cost=2
 attack=0

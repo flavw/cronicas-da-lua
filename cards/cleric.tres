@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/cleric.png" id="2"]
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Clériga da Aurora"
 cost=3
 attack=1
@@ -12,3 +13,4 @@ heal_amount=2
 heal_cost=1
 ability_text="(1) + esgotar:\nCure 2 de vida de uma criatura\naliada ou do seu castelo."
 artwork=ExtResource("2")
+vigor=true

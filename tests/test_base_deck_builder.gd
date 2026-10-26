@@ -1,0 +1,68 @@
+extends SceneTree
+const Store=preload("res://scripts/deck_store.gd")
+const Match=preload("res://scripts/match.gd")
+const CardTheme=preload("res://scripts/card_skin.gd")
+func _initialize() -> void:call_deferred("verify")
+func settle() -> void:
+ for i in range(5):await process_frame
+func click(at: Vector2,button: int=MOUSE_BUTTON_LEFT) -> void:
+ var event:=InputEventMouseButton.new();event.position=at;event.button_index=button;event.pressed=true
+ root.push_input(event,true);event.pressed=false;root.push_input(event,true)
+func verify() -> void:
+ var store=Store.new("user://test_base_builder.json",false)
+ var editor=load("res://deck_editor.tscn").instantiate();editor.configure(store);root.add_child(editor)
+ editor.choose_slot(5);await settle()
+ assert(editor.screen=="choose_class" and editor.collection_keys().is_empty() and editor.find_child("BaseClassChoices",true,false).get_child_count()==6)
+ assert(not editor.add_card("squire"),"Escolher base é obrigatório")
+ editor.find_child("ChooseBase_0",true,false).pressed.emit();await settle()
+ assert(editor.screen=="edit" and editor.draft_base==CardData.CardClass.WARRIOR)
+ assert(editor.collection_keys().all(func(key):return Match.CARD_DATA[key].card_class in [0,2]))
+ assert(not editor.add_card("mage") and not editor.add_card("cleric"))
+ await settle()
+ var card=editor.find_child("CollectionView_squire",true,false)
+ click(card.get_global_rect().get_center());assert(editor.draft==["squire"])
+ await settle()
+ assert(editor.addition_layer!=null and editor.addition_layer.find_child("CardAddFlight",true,false)!=null)
+ var flight=editor.addition_layer.find_child("CardAddFlight",true,false)
+ var start: Vector2=flight.position
+ await create_timer(0.1).timeout
+ assert(flight.position.distance_to(start)>10,"A miniatura se desloca em direção ao deck")
+ await create_timer(0.25).timeout
+ assert(editor.addition_layer.get_child_count()==0)
+ # Whole list row removes a copy; no + or - controls remain in the builder.
+ var row=editor.find_child("DeckCard_squire",true,false)
+ assert(row.find_child("DeckCardCaption",true,false).get_theme_color("font_color")==Color("f2d9a6"))
+ click(row.get_global_rect().get_center());assert(editor.draft==["squire"] and editor.focused_card=="squire")
+ await settle();row=editor.find_child("DeckCard_squire",true,false)
+ click(row.get_global_rect().get_center());assert(editor.draft.is_empty() and editor.draft_base==0)
+ for node in editor.find_children("*","Button",true,false):assert(node.text not in ["+","−","-"])
+ assert(editor.add_card("warrior"))
+ var caption=editor.find_child("DeckCard_warrior",true,false).find_child("DeckCardCaption",true,false)
+ assert(caption.get_theme_color("font_color")==CardTheme.class_color(0).lightened(0.18))
+ editor.clear_draft();assert(editor.save_deck())
+ var reopened=Store.new(store.path)
+ assert(reopened.slots[5].cards.is_empty() and reopened.base_for(5)==0)
+ editor.show_library();editor.choose_slot(5)
+ assert(editor.screen=="edit" and editor.draft_base==0 and not editor.add_card("mage"))
+ editor.begin_class_choice();editor.select_base_class(CardData.CardClass.NEUTRAL)
+ assert(editor.collection_keys().all(func(key):return Match.CARD_DATA[key].card_class==2))
+ assert(not editor.add_card("warrior") and editor.add_card("village_wall"))
+ editor.show_library();editor.choose_slot(5)
+ assert(editor.draft_base==2 and editor.draft==["village_wall"],"Rascunho mantém base e cartas na navegação")
+ editor.clear_draft();editor.draft=Match.default_deck(4);editor.render()
+ assert(editor.draft==Match.default_deck(4) and editor.save_deck())
+ assert(Store.new(store.path).base_for(5)==2)
+ assert(not store.save_slot(6,"Base inválida",Match.default_deck(1),0))
+ assert(store.save_slot(6,"Neutros com base Mago",Match.default_deck(4),1))
+ assert(Store.new(store.path).base_for(6)==1)
+ # Version 6 files gain the base inferred from existing cards without changing them.
+ var legacy=store.slots.duplicate(true)
+ for slot in legacy:slot.erase("base_class")
+ var file=FileAccess.open(store.path,FileAccess.WRITE);file.store_string(JSON.stringify({"version":6,"active":1,"slots":legacy}));file.close()
+ var migrated=Store.new(store.path)
+ assert(migrated.active==1 and migrated.base_for(0)==0 and migrated.base_for(1)==3 and migrated.base_for(5)==2)
+ for i in range(9):assert(migrated.slots[i].cards==legacy[i].cards and migrated.slots[i].name==legacy[i].name and migrated.slots[i].cover==legacy[i].cover)
+ editor.queue_free();await process_frame;await create_timer(0.35).timeout
+ DirAccess.remove_absolute(ProjectSettings.globalize_path(store.path))
+ print("OK: escolha obrigatória, base persistente, coleção compatível, clique adicionar/remover, animação única, cores discretas e migração sem perder decks.")
+ quit()

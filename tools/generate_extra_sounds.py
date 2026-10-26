@@ -1,4 +1,5 @@
-import math, random, struct, wave
+from audio_encoding import write_ogg
+import math, random, struct
 from pathlib import Path
 out = Path(__file__).resolve().parents[1] / 'assets' / 'audio'
 out.mkdir(parents=True, exist_ok=True)
@@ -13,8 +14,7 @@ def write(name, seconds, sample):
         values.append(sample(t)*envelope)
     peak = max(abs(v) for v in values)
     pcm = b''.join(struct.pack('<h', round(v/peak*19500)) for v in values)
-    with wave.open(str(out/(name+'.wav')), 'wb') as f:
-        f.setnchannels(1); f.setsampwidth(2); f.setframerate(sr); f.writeframes(pcm)
+    write_ogg(out / (name + '.ogg'), pcm, sr)
     print(name, seconds, 'seconds')
 
 def magic(t):

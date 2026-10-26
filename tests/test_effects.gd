@@ -29,8 +29,9 @@ func wait_effect(main: Control, actor: Control, victims: Array) -> void:
 
 func verify() -> void:
  var main = load("res://main.tscn").instantiate()
+ main.enable_opening=false
  root.add_child(main)
- assert(main.sounds.size() == 6)
+ assert(main.sounds.size() == 10)
  for kind in main.sounds:
   assert(main.sounds[kind].stream.get_length() > 0.1)
  main.duel.players[0].board = [creature("warrior", 10)]

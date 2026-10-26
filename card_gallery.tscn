@@ -1,80 +1,243 @@
-[gd_scene load_steps=13 format=3]
-[ext_resource type="PackedScene" path="res://card_model.tscn" id="1"]
-[ext_resource type="Resource" path="res://cards/warrior.tres" id="2"]
-[ext_resource type="Resource" path="res://cards/mage.tres" id="3"]
-[ext_resource type="Resource" path="res://cards/squire.tres" id="4"]
-[ext_resource type="Resource" path="res://cards/wolf.tres" id="5"]
-[ext_resource type="Resource" path="res://cards/rogue.tres" id="6"]
-[ext_resource type="Resource" path="res://cards/raven.tres" id="7"]
-[ext_resource type="Resource" path="res://cards/sentinel.tres" id="8"]
-[ext_resource type="Resource" path="res://cards/fire_mage.tres" id="9"]
-[ext_resource type="Resource" path="res://cards/farmer.tres" id="10"]
-[ext_resource type="Resource" path="res://cards/cleric.tres" id="11"]
-[sub_resource type="StyleBoxFlat" id="Background"]
-bg_color=Color(0.025,0.04,0.08,1)
-[node name="Gallery" type="Panel"]
+[gd_scene load_steps=50 format=3]
+[ext_resource type="PackedScene" path="res://card_model.tscn" id="card"]
+[ext_resource type="Resource" path="res://cards/warrior.tres" id="data0"]
+[ext_resource type="Resource" path="res://cards/mage.tres" id="data1"]
+[ext_resource type="Resource" path="res://cards/squire.tres" id="data2"]
+[ext_resource type="Resource" path="res://cards/wolf.tres" id="data3"]
+[ext_resource type="Resource" path="res://cards/rogue.tres" id="data4"]
+[ext_resource type="Resource" path="res://cards/raven.tres" id="data5"]
+[ext_resource type="Resource" path="res://cards/sentinel.tres" id="data6"]
+[ext_resource type="Resource" path="res://cards/fire_mage.tres" id="data7"]
+[ext_resource type="Resource" path="res://cards/farmer.tres" id="data8"]
+[ext_resource type="Resource" path="res://cards/cleric.tres" id="data9"]
+[ext_resource type="Resource" path="res://cards/wall_guard.tres" id="data10"]
+[ext_resource type="Resource" path="res://cards/gate_watcher.tres" id="data11"]
+[ext_resource type="Resource" path="res://cards/eclipse_channeler.tres" id="data12"]
+[ext_resource type="Resource" path="res://cards/runic_familiar.tres" id="data13"]
+[ext_resource type="Resource" path="res://cards/dusk_scout.tres" id="data14"]
+[ext_resource type="Resource" path="res://cards/messenger_hawk.tres" id="data15"]
+[ext_resource type="Resource" path="res://cards/dawn_warden.tres" id="data16"]
+[ext_resource type="Resource" path="res://cards/life_pilgrim.tres" id="data17"]
+[ext_resource type="Resource" path="res://cards/iron_stance.tres" id="data18"]
+[ext_resource type="Resource" path="res://cards/astral_flame.tres" id="data19"]
+[ext_resource type="Resource" path="res://cards/shadow_step.tres" id="data20"]
+[ext_resource type="Resource" path="res://cards/restoring_light.tres" id="data21"]
+[ext_resource type="Resource" path="res://cards/vigor_vow.tres" id="data22"]
+[ext_resource type="Resource" path="res://cards/conductive_bolt.tres" id="data23"]
+[ext_resource type="Resource" path="res://cards/moon_herald.tres" id="data24"]
+[ext_resource type="Resource" path="res://cards/wall_smith.tres" id="data25"]
+[ext_resource type="Resource" path="res://cards/aether_summoner.tres" id="data26"]
+[ext_resource type="Resource" path="res://cards/mist_alchemist.tres" id="data27"]
+[ext_resource type="Resource" path="res://cards/dawn_oracle.tres" id="data28"]
+[ext_resource type="Resource" path="res://cards/village_leader.tres" id="data29"]
+[ext_resource type="Resource" path="res://cards/generous_peasant.tres" id="data30"]
+[ext_resource type="Resource" path="res://cards/village_reconstruction.tres" id="data31"]
+[ext_resource type="Resource" path="res://cards/village_wall.tres" id="data32"]
+[ext_resource type="Resource" path="res://cards/fireball.tres" id="data33"]
+[ext_resource type="Resource" path="res://cards/abascanto_guardian.tres" id="abascanto"]
+[ext_resource type="Resource" path="res://cards/peasant_uprising.tres" id="uprising"]
+[ext_resource type="Resource" path="res://cards/harvest_ox.tres" id="ox"]
+[ext_resource type="Resource" path="res://cards/dawn_devotee.tres" id="devotee"]
+[ext_resource type="Resource" path="res://cards/goblin_raider.tres" id="goblin_raider"]
+[ext_resource type="Resource" path="res://cards/minotaur_brute.tres" id="minotaur_brute"]
+[ext_resource type="Resource" path="res://cards/moon_werewolf.tres" id="moon_werewolf"]
+[ext_resource type="Resource" path="res://cards/zombie_helper.tres" id="zombie_helper"]
+[ext_resource type="Resource" path="res://cards/necromancer_summoner.tres" id="necromancer_summoner"]
+[ext_resource type="Resource" path="res://cards/summoned_ghoul.tres" id="summoned_ghoul"]
+[ext_resource type="Resource" path="res://cards/horde_roar.tres" id="horde_roar"]
+[ext_resource type="Resource" path="res://cards/brood_fungus.tres" id="brood_fungus"]
+[ext_resource type="Resource" path="res://cards/marsh_troll.tres" id="marsh_troll"]
+[ext_resource type="Resource" path="res://cards/wise_merchant.tres" id="wise_merchant"]
+[node name="CardGallery" type="Control"]
+layout_mode=3
 anchors_preset=15
 anchor_right=1.0
 anchor_bottom=1.0
-theme_override_styles/panel=SubResource("Background")
-[node name="Title" type="Label" parent="."]
-offset_left=30.0
-offset_top=25.0
-offset_right=1410.0
-offset_bottom=100.0
-theme_override_font_sizes/font_size=26
-text="COLEÇÃO • 10 CARTAS\nGuerreiro • Mago • Neutro • Ladina • Clérigo"
-horizontal_alignment=1
-[node name="Scroll" type="ScrollContainer" parent="."]
+grow_horizontal=2
+grow_vertical=2
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset=15
 anchor_right=1.0
 anchor_bottom=1.0
-offset_left=35.0
-offset_top=115.0
-offset_right=-25.0
-offset_bottom=-20.0
+color=Color(0.035,0.055,0.09,1)
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=30.0
+offset_top=24.0
+offset_right=-30.0
+offset_bottom=-24.0
 horizontal_scroll_mode=0
-[node name="Grid" type="GridContainer" parent="Scroll"]
+[node name="Page" type="VBoxContainer" parent="Scroll"]
+size_flags_horizontal=3
+theme_override_constants/separation=20
+[node name="Title" type="Label" parent="Scroll/Page"]
+text="CRÔNICAS DA LUA • 48 RECURSOS • CRIATURAS E MAGIAS"
+theme_override_font_sizes/font_size=25
+[node name="Grid" type="GridContainer" parent="Scroll/Page"]
 columns=5
-theme_override_constants/h_separation=20
-theme_override_constants/v_separation=20
-[node name="warrior" parent="Scroll/Grid" instance=ExtResource("1")]
+theme_override_constants/h_separation=16
+theme_override_constants/v_separation=22
+[node name="warrior" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("2")
-[node name="mage" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data0")
+[node name="mage" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("3")
-[node name="squire" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data1")
+[node name="squire" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("4")
-[node name="wolf" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data2")
+[node name="wolf" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("5")
-[node name="rogue" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data3")
+[node name="rogue" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("6")
-[node name="raven" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data4")
+[node name="raven" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("7")
-[node name="sentinel" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data5")
+[node name="sentinel" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("8")
-[node name="fire_mage" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data6")
+[node name="fire_mage" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("9")
-[node name="farmer" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data7")
+[node name="farmer" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("10")
-[node name="cleric" parent="Scroll/Grid" instance=ExtResource("1")]
+card_data=ExtResource("data8")
+[node name="cleric" parent="Scroll/Page/Grid" instance=ExtResource("card")]
 custom_minimum_size=Vector2(250,334)
-layout_mode=2
-card_data=ExtResource("11")
+card_data=ExtResource("data9")
+[node name="wall_guard" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data10")
+[node name="gate_watcher" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data11")
+[node name="eclipse_channeler" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data12")
+[node name="runic_familiar" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data13")
+[node name="dusk_scout" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data14")
+[node name="messenger_hawk" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data15")
+[node name="dawn_warden" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data16")
+[node name="life_pilgrim" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data17")
+[node name="iron_stance" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data18")
+[node name="astral_flame" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data19")
+[node name="shadow_step" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data20")
+[node name="restoring_light" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data21")
+[node name="vigor_vow" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data22")
+[node name="conductive_bolt" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data23")
+[node name="moon_herald" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data24")
+[node name="wall_smith" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data25")
+[node name="aether_summoner" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data26")
+[node name="mist_alchemist" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data27")
+[node name="dawn_oracle" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data28")
 
+[node name="village_leader" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data29")
+[node name="generous_peasant" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data30")
+
+[node name="village_reconstruction" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data31")
+
+[node name="village_wall" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data32")
+
+[node name="fireball" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("data33")
+
+[node name="abascanto_guardian" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("abascanto")
+
+[node name="peasant_uprising" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("uprising")
+
+[node name="harvest_ox" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("ox")
+
+[node name="dawn_devotee" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("devotee")
+
+[node name="goblin_raider" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("goblin_raider")
+
+[node name="minotaur_brute" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("minotaur_brute")
+
+[node name="moon_werewolf" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("moon_werewolf")
+
+[node name="zombie_helper" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("zombie_helper")
+
+[node name="necromancer_summoner" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("necromancer_summoner")
+
+[node name="summoned_ghoul" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("summoned_ghoul")
+
+[node name="horde_roar" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("horde_roar")
+
+[node name="brood_fungus" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("brood_fungus")
+
+[node name="marsh_troll" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("marsh_troll")
+
+[node name="wise_merchant" parent="Scroll/Page/Grid" instance=ExtResource("card")]
+custom_minimum_size=Vector2(250,334)
+card_data=ExtResource("wise_merchant")

@@ -5,6 +5,7 @@ func _initialize() -> void:
 
 func verify() -> void:
  var main = load("res://main.tscn").instantiate()
+ main.enable_opening=false
  root.add_child(main)
  var match_data = load("res://scripts/match.gd")
  for side in range(2):
@@ -24,14 +25,17 @@ func verify() -> void:
  motion.position = field.get_global_rect().get_center()
  root.push_input(motion, true)
  await process_frame
+ await create_timer(0.3).timeout
+ await process_frame
  assert(main.preview.visible, "Mouse sobre campo deve exibir carta completa")
  assert(main.preview.card_data == match_data.CARD_DATA.warrior)
  assert(main.preview.get_node("CardCanvas/Stats").text == "3/1")
  assert(field.get_node("Canvas/Stats").text == "3/1")
  assert(main.preview.position.x >= 0 and main.preview.position.y >= 0)
- var preview_image: Texture2D = main.preview.get_node("CardCanvas/Shield").texture
- assert(preview_image != null)
- assert(fields[6].get_node("Canvas/Shield").texture == fields[7].get_node("Canvas/Shield").texture, "Lobo e Escudeiro são neutros")
+ assert(not main.preview.has_node("CardCanvas/Shield"))
+ assert(not fields[6].has_node("Canvas/Shield"))
+ var color_script=load("res://scripts/card_skin.gd")
+ assert(color_script.class_color(fields[6].card_data.card_class)==color_script.class_color(fields[7].card_data.card_class),"Lobo e Escudeiro são neutros")
  if DisplayServer.get_name() != "headless":
   await RenderingServer.frame_post_draw
   var output: String = OS.get_environment("CARDGAME_PREVIEW_PATH")

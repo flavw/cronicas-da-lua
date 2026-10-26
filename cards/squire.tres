@@ -5,6 +5,7 @@
 
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Escudeiro da Lua"
 cost=1
 attack=1

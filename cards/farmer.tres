@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" path="res://assets/art/farmer.png" id="2"]
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Fazendeiro"
 cost=2
 attack=1
-health=2
+health=3
 card_class=2
 growth=1
 ability_text="Cultivo\nNo início do seu turno,\nganhe +1 de vida atual e máxima."

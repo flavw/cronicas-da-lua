@@ -26,9 +26,9 @@ func _init() -> void:
  assert(m.act(0, 1, -1))
  assert(m.players[1].hp == 18 and m.players[1].board[0].block == 1)
  m.players[0].board = [creature("fire_mage", 60)]
+ m.players[0].mana = 0
+ assert(not m.act(0, 0, 1, true), "Feiticeira exige 1 mana")
  m.players[0].mana = 1
- assert(not m.act(0, 0, 1, true), "Feiticeira exige 2 mana")
- m.players[0].mana = 2
  assert(not m.act(0, 0, -1, true))
  assert(m.act(0, 0, 1, true))
  assert(m.players[0].mana == 0 and m.players[0].board[0].health == 3)
@@ -36,9 +36,9 @@ func _init() -> void:
  assert(m.players[1].board[1].health == 1, "2 danos mágicos ignoram Armadura 1")
  assert(m.players[1].board[0].block == 1)
  var decks = Store.new("user://decks_test_expansion.json", false)
- assert(decks.slots.size() == 3)
+ assert(decks.slots.size() == Store.SLOT_COUNT)
  for slot in decks.slots:
-  assert(Match.valid_deck(slot.cards))
+  assert(slot.cards.is_empty() or Match.valid_deck(slot.cards))
  var invalid: Array = Match.default_deck()
  invalid[0] = "not_a_card"
  assert(not Match.valid_deck(invalid))
@@ -59,5 +59,5 @@ func _init() -> void:
  expected.sort()
  assert(actual == expected, "Partida usa exatamente o deck escolhido")
  DirAccess.remove_absolute(ProjectSettings.globalize_path(decks.path))
- print("OK: Arrancada, Voo, novo mago, 3 decks, limite de 2 cópias, persistência e deck aplicado à partida.")
+ print("OK: Arrancada, Voo, novo mago, 9 decks, limite de 2 cópias, persistência e deck aplicado à partida.")
  quit()

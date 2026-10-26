@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/fire_mage.png" id="2"]
 [resource]
 script=ExtResource("1")
+creature_type=0
 title="Feiticeira das Brasas"
 cost=4
 attack=2
@@ -10,8 +11,8 @@ health=3
 armor=0
 card_class=1
 magic_damage=2
-magic_cost=2
-ability_text="(2) + esgotar:\n2 danos mágicos na criatura alvo.\nSem contra-ataque."
+magic_cost=1
+ability_text="(1) + esgotar:\n2 danos mágicos na criatura alvo.\nSem contra-ataque."
 artwork=ExtResource("2")
 artwork_zoom=1.16
 artwork_focus=Vector2(0.5, 0.43)
